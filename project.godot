@@ -11,10 +11,21 @@ config_version=5
 [application]
 
 config/name="20GC GameJam Level 6: Platformer - Bubble Bobble"
+config/description="The 20 Games Challenge 2025 Summer GameJam: Bubble Bobble"
+config/version="v0.1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=240
+window/size/window_width_override=640
+window/size/window_height_override=576
+window/stretch/mode="canvas_items"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
