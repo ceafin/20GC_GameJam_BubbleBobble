@@ -16,6 +16,13 @@ config/version="v0.1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://autoloads/GameManager.gd"
+SaveData="*res://autoloads/SaveData.gd"
+AudioManager="*res://autoloads/AudioManager.gd"
+ScoreManager="*res://autoloads/ScoreManager.gd"
+
 [display]
 
 window/size/viewport_width=256
