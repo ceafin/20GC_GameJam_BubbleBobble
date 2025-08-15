@@ -4,7 +4,7 @@ class_name Main
 @onready var level_manager : LevelManager = $LevelManager
 @onready var ui_layer : UI = $UI
 
-var _hud : Control
+var _hud : HUD
 var _title : Control
 
 const HUD_SCENE : PackedScene = preload("res://ui/hud.tscn")
