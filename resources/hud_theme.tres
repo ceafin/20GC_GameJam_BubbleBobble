@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://qx5mpbi46gag"]
+
+[ext_resource type="FontFile" uid="uid://tvt6vxvth4h0" path="res://assets/Ac437_IBM_EGA_8x8.ttf" id="1_o5cxf"]
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_o5cxf")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("1_o5cxf")

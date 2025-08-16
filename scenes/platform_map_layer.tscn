@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=4 uid="uid://by55g0lipfy6b"]
+
+[ext_resource type="TileSet" uid="uid://c4xx6o7xxyhre" path="res://resources/all_levels_tileset.tres" id="1_vlh2q"]
+
+[node name="PlatformMapLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAANAA0AAgAAAAAAAAAOAA0AAgAAAAAAAAAPAA0AAgAAAAAAAAAPAA4AAgAAAAAAAAAPAA8AAgAAAAAAAAAOAA8AAgAAAAAAAAANAA8AAgAAAAAAAAANAA4AAgAAAAAAAAA=")
+tile_set = ExtResource("1_vlh2q")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy1o15aoarrrf"]
+
+[ext_resource type="Texture2D" uid="uid://xqsibrana5fh" path="res://assets/changeMe.png" id="1_06f56"]
+
+[node name="Round_Intro" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_06f56")
+centered = false
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="P1Float" type="Marker2D" parent="Markers"]
+
+[node name="P2Float" type="Marker2D" parent="Markers"]

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 const SAVE_PATH := "user://save.json"
 

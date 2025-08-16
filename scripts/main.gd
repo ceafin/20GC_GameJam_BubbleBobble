@@ -3,6 +3,7 @@ class_name Main
 
 @onready var level_manager : LevelManager = $LevelManager
 @onready var ui_layer : UI = $UI
+@onready var camera_2d: Camera2D = $Camera2D
 
 var _hud : HUD
 var _title : Control
@@ -12,6 +13,10 @@ const TITLE_SCENE : PackedScene = preload("res://ui/title_screen.tscn")
 
 func _ready() -> void:
 	
+	# I know I set this in the Inspector, but damnit it better stay that way
+	camera_2d.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
+	camera_2d.position = Vector2.ZERO
+
 	# Instantiate and Add the UI scenes
 	_hud = HUD_SCENE.instantiate()
 	ui_layer.add_child( _hud )

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcniljw5lvd5a"]
+[gd_scene load_steps=3 format=3 uid="uid://bcniljw5lvd5a"]
 
+[ext_resource type="Theme" uid="uid://qx5mpbi46gag" path="res://resources/hud_theme.tres" id="1_276te"]
 [ext_resource type="Script" uid="uid://ba4jnmap7vo61" path="res://ui/hud.gd" id="1_rbyyf"]
 
 [node name="HUD" type="Control"]
@@ -9,29 +10,72 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_276te")
 script = ExtResource("1_rbyyf")
 
-[node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="HBoxTop" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
 
-[node name="HighScoreLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="ScoreLabel" type="Label" parent="HBoxTop"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SCORE: NA"
+vertical_alignment = 2
 
-[node name="LivesLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="StageLabel" type="Label" parent="HBoxTop"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "STAGE: NA"
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="RoundLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="HighScoreLabel" type="Label" parent="HBoxTop"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HIGHSCORE: NA"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="HurryBanner" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hurry Up!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxBottom" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="LivesLabel" type="Label" parent="HBoxBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIVES: NA"
+
+[node name="LivesLabel2" type="Label" parent="HBoxBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIVES: NA"
+horizontal_alignment = 2

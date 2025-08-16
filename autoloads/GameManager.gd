@@ -46,10 +46,18 @@ func _ready() -> void:
 
 
 func start_game( first_level: String ) -> void:
-	stage_number = 1                # uses the property -> emits stage_changed
+	
+	# Setter will emit signal
+	stage_number = 1
+	
 	current_level_path = first_level
+	
 	ScoreManager.reset_run()
-	state = STATE_PLAYING           # uses the property -> emits game_state_changed
+	
+	# Setter will emit signal
+	state = STATE_PLAYING
+	
+	# Manually emit this one
 	emit_signal("level_changed", current_level_path)
 
 func go_to_title() -> void:

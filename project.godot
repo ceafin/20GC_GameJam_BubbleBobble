@@ -19,10 +19,16 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://autoloads/GameManager.gd"
 SaveData="*res://autoloads/SaveData.gd"
-AudioManager="*res://autoloads/AudioManager.gd"
 ScoreManager="*res://autoloads/ScoreManager.gd"
+AudioManager="*res://autoloads/AudioManager.gd"
+GameManager="*res://autoloads/GameManager.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/unsafe_property_access=2
+gdscript/warnings/function_used_as_property=2
 
 [display]
 
@@ -31,6 +37,17 @@ window/size/viewport_height=240
 window/size/window_width_override=640
 window/size/window_height_override=576
 window/stretch/mode="canvas_items"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Bubbles"
+2d_physics/layer_5="Pickups"
+2d_physics/layer_6="EnemyBullets"
+2d_physics/layer_7="PlayerHitbox"
+2d_physics/layer_8="Hurtbox"
 
 [rendering]
 
