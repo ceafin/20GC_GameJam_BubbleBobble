@@ -6,7 +6,7 @@ class_name HUD
 @onready var high_label : Label = $HBoxTop/HighScoreLabel
 
 @onready var lives_label: Label = $HBoxBottom/LivesLabel
-@onready var lives_label_2: Label = $HBoxBottom/LivesLabel2
+@onready var advance_level_button: Button = $HBoxBottom/AdvanceLevelButton
 
 @onready var hurry_banner : Label = $HurryBanner
 

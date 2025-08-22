@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xqsibrana5fh" path="res://assets/changeMe.png" id="1_06f56"]
 
-[node name="Round_Intro" type="Node2D"]
+[node name="Stage_000" type="Node2D"]
 
 [node name="BG" type="Sprite2D" parent="."]
 texture = ExtResource("1_06f56")

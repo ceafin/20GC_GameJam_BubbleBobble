@@ -23,6 +23,7 @@ SaveData="*res://autoloads/SaveData.gd"
 ScoreManager="*res://autoloads/ScoreManager.gd"
 AudioManager="*res://autoloads/AudioManager.gd"
 GameManager="*res://autoloads/GameManager.gd"
+StageCatalog="*res://autoloads/StageCatalog.gd"
 
 [debug]
 
@@ -37,6 +38,21 @@ window/size/viewport_height=240
 window/size/window_width_override=640
 window/size/window_height_override=576
 window/stretch/mode="canvas_items"
+
+[input]
+
+start={
+"deadzone": 0.2,
+"events": []
+}
+jump={
+"deadzone": 0.2,
+"events": []
+}
+bubble={
+"deadzone": 0.2,
+"events": []
+}
 
 [layer_names]
 

@@ -1,9 +1,9 @@
 extends Node
 class_name Main
 
-@onready var level_manager : LevelManager = $LevelManager
+@onready var stage_manager : StageManager = $StageManager
 @onready var ui_layer : UI = $UI
-@onready var camera_2d: Camera2D = $Camera2D
+@onready var camera_2d : Camera2D = $Camera2D
 
 var _hud : HUD
 var _title : Control
@@ -34,9 +34,9 @@ func _on_game_state_changed( state: String ) -> void:
 
 func _on_level_changed( path: String ) -> void:
 	# Delegate to LevelManager to actually load the level
-	if level_manager as LevelManager:
-		if level_manager.has_method( "load_first_level" ):
-			level_manager.load_first_level( path )
+	if stage_manager as StageManager:
+		if stage_manager.has_method( "load_first_level" ):
+			stage_manager.load_first_level( path )
 
 func _update_ui_for_state( state: String ) -> void:
 	match state:
