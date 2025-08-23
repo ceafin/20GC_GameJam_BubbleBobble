@@ -16,7 +16,7 @@ var score : int:
 	get:
 		return _score
 	set( value ):
-		value = max( value, 0 )
+		value = max( value, 0 ) # Don't need negative scores being set
 		if value == _score:
 			return
 		_score = value
@@ -27,20 +27,16 @@ var score : int:
 			# Using Setter to Trigger Signal
 			high_score = _score
 
-
-## Getter/Setter for when you need another quarter
 var lives : int:
 	get:
 		return _lives
 	set( value ):
-		value = clamp( value, 0, 99 )
+		value = clamp( value, 0, 99 ) # No negative lives
 		if value == _lives:
 			return
 		_lives = value
 		emit_signal( "lives_changed", _lives )
 
-
-## Getter/Setter for the Highest of Scores
 var high_score : int:
 	get:
 		return _high_score
@@ -56,13 +52,9 @@ var high_score : int:
 
 func _ready() -> void:
 	
-	# Pause if you're paused
-	process_mode = Node.PROCESS_MODE_PAUSABLE
-	
 	# Go read the highscore and signal for it
 	_high_score = SaveData.get_high_score()
 	emit_signal( "high_score_changed", _high_score )
-
 
 func reset_run() -> void:
 	score = 0

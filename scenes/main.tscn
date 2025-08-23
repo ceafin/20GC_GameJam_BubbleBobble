@@ -8,6 +8,7 @@
 script = ExtResource("1_sugp2")
 
 [node name="StageManager" parent="." instance=ExtResource("1_0wfyh")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

@@ -11,7 +11,7 @@ var data : Dictionary = {
 }
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_PAUSABLE
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	_load_data()
 
 func _load_data() -> void:

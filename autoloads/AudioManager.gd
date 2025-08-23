@@ -9,9 +9,6 @@ var _music : AudioStreamPlayer = AudioStreamPlayer.new()
 
 func _ready() -> void:
 	
-	# Wake up when things are actually paused
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	
 	# Instantiate the kids
 	add_child( _sfx )
 	_sfx.bus = sfx_bus
