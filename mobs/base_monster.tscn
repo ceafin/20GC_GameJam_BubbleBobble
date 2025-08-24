@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs1tjs15dm6e6"]
+
+[ext_resource type="Script" uid="uid://cgaf0pfn3wl35" path="res://mobs/base_monster.gd" id="1_8b100"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b100"]
+radius = 8.0
+
+[node name="BaseMonster" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_8b100")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8b100")

@@ -8,30 +8,25 @@ class_name HUD
 @onready var lives_label: Label = $HBoxBottom/LivesLabel
 @onready var advance_level_button: Button = $HBoxBottom/AdvanceLevelButton
 
-@onready var hurry_banner : Label = $HurryBanner
-
 func _ready() -> void:
-	
-	hurry_banner.visible = false
-	
+		
 	# Just manually update all the things
-	_update_score( ScoreManager.score )
-	_update_high( ScoreManager.high_score )
-	_update_lives( ScoreManager.lives )
-	
-	_update_stage( GameManager.stage_number )
+	_update_high( SM.high_score )
+	_update_score( SM.score )
+	_update_lives( GM.lives )
+	_update_stage( GM.stage_number )
 
 	# Wire up the signals
-	ScoreManager.connect( "score_changed", Callable( self, "_update_score" ) )
-	ScoreManager.connect( "high_score_changed", Callable( self, "_update_high" ) )
-	ScoreManager.connect( "lives_changed", Callable( self, "_update_lives" ) )
-	GameManager.connect( "stage_changed", Callable( self, "_update_stage" ) )
-
-func _update_score( v: int ) -> void:
-	score_label.text = "SCORE: %d" % v
+	GSB.high_score_changed.connect( Callable( self, "_update_high" ) )
+	GSB.score_changed.connect( Callable( self, "_update_score" ) )
+	GSB.lives_changed.connect( Callable( self, "_update_lives" ) )
+	GSB.stage_changed.connect( Callable( self, "_update_stage" ) )
 
 func _update_high( v: int ) -> void:
 	high_label.text = "HIGH: %d" % v
+
+func _update_score( v: int ) -> void:
+	score_label.text = "SCORE: %d" % v
 
 func _update_lives( v: int ) -> void:
 	lives_label.text = "LIVES: %d" % v

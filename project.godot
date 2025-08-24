@@ -19,11 +19,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GSB="*res://autoloads/GlobalSignalBus.gd"
 SaveData="*res://autoloads/SaveData.gd"
-ScoreManager="*res://autoloads/ScoreManager.gd"
-AudioManager="*res://autoloads/AudioManager.gd"
-GameManager="*res://autoloads/GameManager.gd"
+SM="*res://autoloads/ScoreManager.gd"
+AM="*res://autoloads/AudioManager.gd"
 StageCatalog="*res://autoloads/StageCatalog.gd"
+GM="*res://autoloads/GameManager.gd"
 
 [debug]
 

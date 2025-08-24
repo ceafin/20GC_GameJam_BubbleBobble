@@ -1,5 +1,5 @@
 extends Node
-
+class_name AudioManager
 
 var _sfx : AudioStreamPlayer = AudioStreamPlayer.new()
 var _music : AudioStreamPlayer = AudioStreamPlayer.new()
