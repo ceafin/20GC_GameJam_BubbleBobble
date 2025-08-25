@@ -1,7 +1,6 @@
 extends Node2D
 class_name StageManager
 
-
 var _current_index  : int = -1
 var _queued_index   : int = -1
 var _queued_path    : String = ""
@@ -19,12 +18,16 @@ var viewport_size : Vector2
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
+	
 	viewport_size = get_viewport_rect().size
 	get_viewport().size_changed.connect(_on_viewport_resized)
 	
 	_current_index = 0
 	_load_current_sync( _current_index )
 	_prefetch_next()
+	
+	GSB.stage_complete.connect( Callable( self, "_stage_completed" ) )
 
 func _process( _delta: float ) -> void:
 	_poll_threaded_load()
@@ -169,11 +172,15 @@ func _finish_slide() -> void:
 	# Prep next
 	_prefetch_next()
 
-func _on_advance_stage_pressed() -> void:
-	_advance_to_next_stage()
-
 func _on_viewport_resized() -> void:
 	viewport_size = get_viewport_rect().size
 	# Keep the "next" panel parked one screen below if it's staged
 	if next_holder.get_child_count() > 0 and not _is_sliding:
 		next_holder.position = Vector2(0, viewport_size.y)
+
+func _stage_completed() -> void:
+	_advance_to_next_stage()
+
+
+func _on_auto_advancer_timeout() -> void:
+	_advance_to_next_stage()

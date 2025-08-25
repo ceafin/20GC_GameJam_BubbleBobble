@@ -1,50 +1,52 @@
 extends Node
 class_name Main
 
-@onready var stage_manager : StageManager = $StageManager
-@onready var ui_layer : UI = $UI
-@onready var camera_2d : Camera2D = $Camera2D
+var _stage_number : int = 0
+var stage_number : int:
+	get:
+		return _stage_number
+	set( value ):
+		value = max( 1, value )
+		if value == _stage_number:
+			return
+		_stage_number = value
+		GSB.stage_changed.emit( _stage_number )
 
-var _hud : HUD
-var _title : Control
+var _lives : int = 3
+var lives : int:
+	get:
+		return _lives
+	set( value ):
+		value = clamp( value, 0, 99 ) # No negative lives
+		if value == _lives:
+			return
+		_lives = value
+		GSB.lives_changed.emit( _lives )
 
-const HUD_SCENE : PackedScene = preload("res://ui/hud.tscn")
+var current_level_path : String = ""
 
 func _ready() -> void:
 	
-	# I know I set this in the Inspector, but damnit it better stay that way
-	camera_2d.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
-	camera_2d.position = Vector2.ZERO
-
-	# Instantiate and Add the UI scenes
-	_hud = HUD_SCENE.instantiate()
-	_hud.position = Vector2(0,1)
-	ui_layer.add_child( _hud )
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	_update_ui_for_state( GM.state )
+func start_game( first_level: String ) -> void:
+	
+	# Setter will emit signal
+	stage_number = 0
+	
+	current_level_path = first_level
+	
+	SM.reset()
+		
+	# Manually emit this one
+	GSB.stage_changed.emit( current_level_path )
 
-	# Wire up the Autoloader:GameManager's Signals
-	GSB.game_state_changed.connect( Callable( self, "_on_game_state_changed" ) )
-	GSB.stage_changed.connect( Callable( self, "_on_stage_changed" ) )
+func go_to_next_level( next_level_path: String, advance_stage: bool = true ) -> void:
+	if advance_stage:
+		stage_number = _stage_number + 1
+	current_level_path = next_level_path
+	GSB.stage_changed.emit( current_level_path )
 
-func _on_game_state_changed( state: GameManager.GameState ) -> void:
-	_update_ui_for_state( state )
-
-func _on_stage_changed( path: String ) -> void:
-	# Delegate to LevelManager to actually load the level
-	if stage_manager as StageManager:
-		if stage_manager.has_method( "load_first_level" ):
-			stage_manager.load_first_level( path )
-
-func _update_ui_for_state( state: GameManager.GameState ) -> void:
-	match state:
-		GM.GameState.TITLE:
-			get_tree().paused = false
-			#_title.visible = true
-			_hud.visible = false
-		GM.GameState.PLAYING:
-			#_title.visible = false
-			_hud.visible = true
-		GM.GameState.GAME_OVER:
-			#_title.visible = true
-			_hud.visible = false
+func restart_current_level() -> void:
+	if current_level_path != "":
+		GSB.stage_changed.emit( current_level_path )

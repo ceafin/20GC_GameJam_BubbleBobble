@@ -1,7 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvtqmsbalqa7"]
+[gd_scene load_steps=21 format=3 uid="uid://dvtqmsbalqa7"]
 
 [ext_resource type="PackedScene" uid="uid://cs1tjs15dm6e6" path="res://mobs/base_monster.tscn" id="1_wy1ud"]
 [ext_resource type="Texture2D" uid="uid://b5l40fns5k304" path="res://assets/BB-Enemies.png" id="2_wy1ud"]
+[ext_resource type="Script" uid="uid://ch5qbd2evvryp" path="res://mobs/fsm/monster_states/monster_fall.gd" id="3_itv5l"]
+[ext_resource type="Script" uid="uid://dq44m0bi86jpu" path="res://mobs/fsm/monster_states/monster_wander.gd" id="4_20jb4"]
+[ext_resource type="Script" uid="uid://ceqnq1n766b" path="res://mobs/fsm/monster_states/monster_climb.gd" id="5_qx7b8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itv5l"]
 atlas = ExtResource("2_wy1ud")
@@ -19,14 +22,6 @@ region = Rect2(296, 2, 21, 21)
 atlas = ExtResource("2_wy1ud")
 region = Rect2(317, 2, 21, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5le8"]
-atlas = ExtResource("2_wy1ud")
-region = Rect2(86, 2, 21, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ci7l7"]
-atlas = ExtResource("2_wy1ud")
-region = Rect2(107, 2, 21, 21)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdq53"]
 atlas = ExtResource("2_wy1ud")
 region = Rect2(2, 2, 21, 21)
@@ -34,6 +29,14 @@ region = Rect2(2, 2, 21, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_damjq"]
 atlas = ExtResource("2_wy1ud")
 region = Rect2(23, 2, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5le8"]
+atlas = ExtResource("2_wy1ud")
+region = Rect2(86, 2, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci7l7"]
+atlas = ExtResource("2_wy1ud")
+region = Rect2(107, 2, 21, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rudw5"]
 atlas = ExtResource("2_wy1ud")
@@ -80,6 +83,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qdq53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_damjq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_e5le8")
 }, {
 "duration": 1.0,
@@ -87,17 +101,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurried",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qdq53")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_damjq")
-}],
-"loop": true,
-"name": &"normal",
 "speed": 4.0
 }, {
 "frames": [{
@@ -139,6 +142,24 @@ speed = 100.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_qx7b8")
-animation = &"normal"
-autoplay = "normal"
-frame_progress = 0.774703
+autoplay = "default"
+
+[node name="Idle" parent="MonsterFSM" index="0"]
+think_min = 0.25
+think_max = 1.0
+
+[node name="Wander" type="Node" parent="MonsterFSM" index="1"]
+script = ExtResource("4_20jb4")
+selectable_in_idle = true
+metadata/_custom_type_script = "uid://dq44m0bi86jpu"
+
+[node name="Fall" type="Node" parent="MonsterFSM" index="2"]
+script = ExtResource("3_itv5l")
+metadata/_custom_type_script = "uid://ch5qbd2evvryp"
+
+[node name="Climb" type="Node" parent="MonsterFSM" index="3"]
+script = ExtResource("5_qx7b8")
+climb_time = 2.0
+selectable_in_idle = true
+idle_weight = 2.0
+metadata/_custom_type_script = "uid://ceqnq1n766b"

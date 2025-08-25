@@ -8,7 +8,6 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	_start_game()
-	#emit_signal("game_started")
 
 func _unhandled_input( e: InputEvent ) -> void:
 	if e.is_action_pressed("start"):

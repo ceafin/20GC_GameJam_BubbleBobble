@@ -3,4 +3,20 @@ class_name BaseMonster
 
 @export var speed : float = 50
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
 var is_pissed : bool
+
+func _ready() -> void:
+	animated_sprite_2d.play("default")
+	
+
+func _physics_process(delta: float) -> void:
+	if velocity.x > 0:
+		animated_sprite_2d.flip_h = true
+	elif velocity.x < 0:
+		animated_sprite_2d.flip_h = false
+	
+	move_and_slide()
+	

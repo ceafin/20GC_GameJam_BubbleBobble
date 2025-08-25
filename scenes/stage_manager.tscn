@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3i1gpb7mdfhe"]
 
 [ext_resource type="Script" uid="uid://dgvd6pi3d5xd5" path="res://scripts/stage_manager.gd" id="1_06fa7"]
-[ext_resource type="Theme" uid="uid://qx5mpbi46gag" path="res://resources/hud_theme.tres" id="2_oeeoj"]
+[ext_resource type="PackedScene" uid="uid://bcniljw5lvd5a" path="res://scenes/hud.tscn" id="2_oeeoj"]
 
 [node name="StageManager" type="Node2D"]
 script = ExtResource("1_06fa7")
+slide_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -15,30 +16,11 @@ anchor_mode = 0
 
 [node name="NextHolder" type="Node2D" parent="Scroller"]
 
-[node name="DebugLayer" type="CanvasLayer" parent="."]
+[node name="AutoAdvancer" type="Timer" parent="."]
+autostart = true
 
-[node name="Control" type="Control" parent="DebugLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="CanvasOverlay" type="CanvasLayer" parent="."]
 
-[node name="AdvanceStage" type="Button" parent="DebugLayer/Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -16.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("2_oeeoj")
-text = "Advance Level"
+[node name="HUD" parent="CanvasOverlay" instance=ExtResource("2_oeeoj")]
 
-[connection signal="pressed" from="DebugLayer/Control/AdvanceStage" to="." method="_on_advance_stage_pressed"]
+[connection signal="timeout" from="AutoAdvancer" to="." method="_on_auto_advancer_timeout"]

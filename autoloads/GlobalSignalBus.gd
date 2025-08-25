@@ -8,4 +8,5 @@ signal lives_changed( value: int )
 
 signal game_state_changed( state: int )
 signal stage_changed( path: String )
-#signal stage_changed( stage_number: int)
+
+signal stage_complete()
