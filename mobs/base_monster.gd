@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name BaseMonster
 
-@export var speed : float = 50
+@export var move_speed : float = 50
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D

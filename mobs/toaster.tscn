@@ -138,7 +138,7 @@ animations = [{
 }]
 
 [node name="Toaster" instance=ExtResource("1_wy1ud")]
-speed = 100.0
+move_speed = 65.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_qx7b8")
@@ -159,7 +159,5 @@ metadata/_custom_type_script = "uid://ch5qbd2evvryp"
 
 [node name="Climb" type="Node" parent="MonsterFSM" index="3"]
 script = ExtResource("5_qx7b8")
-climb_time = 2.0
 selectable_in_idle = true
-idle_weight = 2.0
 metadata/_custom_type_script = "uid://ceqnq1n766b"

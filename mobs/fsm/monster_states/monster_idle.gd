@@ -11,7 +11,7 @@ var _candidates : Array[MonsterState] = []
 
 
 func enter() -> void:
-	print( "Idle!" )
+	print( monster.name + " Chose: Idle!" )
 	_gather_candidates()
 	_reset_think()
 
@@ -47,7 +47,7 @@ func _gather_candidates() -> void:
 	# Iterate through children, looking for other MonsterStates
 	for child in parent.get_children():
 		if child is MonsterState and child != self:
-			var sibling_state: MonsterState = child
+			var sibling_state : MonsterState = child
 			if sibling_state.selectable_in_idle:
 				_candidates.append( sibling_state )
 

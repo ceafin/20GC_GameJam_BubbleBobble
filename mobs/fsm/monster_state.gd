@@ -10,7 +10,7 @@ signal finished(acting_state: MonsterState, new_state_name: String)
 
 func _ready() -> void:
 	await owner.ready
-	monster = owner as CharacterBody2D
+	monster = owner as BaseMonster
 	assert(
 		monster != null,
 		"The MonsterState state type must be used only in the Monster scene. It needs the owner to be a BaseMonster node."
