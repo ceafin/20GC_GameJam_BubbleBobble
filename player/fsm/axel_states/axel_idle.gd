@@ -12,7 +12,6 @@ func physics_update( _delta: float ) -> void:
 
 	# Buffered jump or just plain jump jump, call that jump function
 	if axel.jump_assist.has_buffered_jump() and axel.jump_assist.can_jump_now( axel.is_on_floor() ):
-		axel.start_jump() # Debating on calling it here, in the Jump, or both...
 		finished.emit( self, "jump" )
 		return
 

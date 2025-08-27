@@ -51,7 +51,7 @@ func _transition_to_next_state( acting_state: MonsterState, new_state_name: Stri
 		return
 	
 	# Grab the new state's MonsterState Node, make sure real
-	var new_state: MonsterState = states.get(new_state_name.to_lower())
+	var new_state : MonsterState = states.get( new_state_name.to_lower() )
 	if !new_state:
 		return
 	
@@ -59,8 +59,9 @@ func _transition_to_next_state( acting_state: MonsterState, new_state_name: Stri
 	if current_state:
 		current_state.exit()
 	
+	# Update what is current MonsterState
+	current_state = new_state
+	
 	# Enter the new MonsterState
 	new_state.enter()
 	
-	# Update what is current MonsterState
-	current_state = new_state

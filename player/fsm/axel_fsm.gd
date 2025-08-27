@@ -59,8 +59,9 @@ func _transition_to_next_state( acting_state: AxelState, new_state_name: String 
 	if current_state:
 		current_state.exit()
 	
+	# Update what is current AxelState
+	current_state = new_state
+	
 	# Enter the new AxelState
 	new_state.enter()
 	
-	# Update what is current AxelState
-	current_state = new_state

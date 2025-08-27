@@ -15,7 +15,6 @@ func physics_update(delta: float) -> void:
 	if axel.is_on_floor():
 		# If a jump is in the pipe, jump; else legs
 		if axel.jump_assist.has_buffered_jump():
-			axel.start_jump() # STILL debating on calling it here, or only in the Jump, or both...
 			finished.emit( self, "jump" )
 		else:
 			finished.emit( self, "walk" if axis != 0.0 else "idle" )

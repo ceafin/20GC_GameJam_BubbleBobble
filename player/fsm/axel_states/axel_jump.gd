@@ -15,9 +15,15 @@ func physics_update( _delta: float ) -> void:
 	axel.velocity.y += axel.gravity * _delta
 
 	# Variable jump height: on release, cut upward velocity
-	if Input.is_action_just_released("move_jump") and axel.velocity.y < 0.0:
+	if Input.is_action_just_released("jump") and axel.velocity.y < 0.0:
 		axel.velocity.y *= axel.jump_cut_mult
 
 	# For whatever reason, Axel stopped going up
 	if axel.velocity.y >= 0.0:
-		finished.emit(self, "fall")
+		finished.emit( self, "fall" )
+		return
+	
+	if axel.is_on_ceiling():
+		axel.velocity.y = 0.0
+		finished.emit( self, "fall" )
+		return

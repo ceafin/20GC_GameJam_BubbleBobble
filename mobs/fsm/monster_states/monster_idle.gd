@@ -11,7 +11,7 @@ var _candidates : Array[MonsterState] = []
 
 
 func enter() -> void:
-	print( monster.name + " Chose: Idle!" )
+	monster.velocity = Vector2.ZERO
 	_gather_candidates()
 	_reset_think()
 
@@ -25,10 +25,6 @@ func update( _delta: float ) -> void:
 		_reset_think()
 
 func physics_update( _delta: float ) -> void:
-	monster.velocity = Vector2.ZERO
-
-	# Maybe some looking around animation here?
-	
 	if !monster.is_on_floor():
 		finished.emit( self, "fall" )
 
@@ -38,7 +34,7 @@ func _gather_candidates() -> void:
 	_candidates.clear()
 	
 	# Get parent, should be the FSM
-	var parent : Node = get_parent()
+	var parent : MonsterFSM = get_parent()
 	
 	# If no parent or not the MonsterFSM, just return
 	if ( parent == null ) or ( not parent is MonsterFSM ):

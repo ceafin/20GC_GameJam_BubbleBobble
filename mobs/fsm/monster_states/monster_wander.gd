@@ -6,21 +6,26 @@ var move_direction : Vector2 = Vector2.ZERO
 @export var wander_time : float
 
 func enter() -> void:
-	print( monster.name + " Chose: Wander!" )
 	_randomize_wander()
 
 
 func update(_delta: float) -> void:
 	if wander_time > 0:
 		wander_time -= _delta
-	else:
-		finished.emit( self, "idle" )
 
 func physics_update(_delta: float) -> void:
-	monster.velocity = move_direction * monster.move_speed
 	
 	if !monster.is_on_floor():
 		finished.emit( self, "fall" )
+		return
+	
+	if wander_time <= 0.0:
+		finished.emit(self, "idle")
+		return
+	
+	monster.velocity = move_direction * monster.move_speed
+
+
 
 
 func _randomize_wander() -> void:

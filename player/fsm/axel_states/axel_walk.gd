@@ -13,7 +13,6 @@ func physics_update( _delta: float ) -> void:
 
 	# I feel like this is too complicated, maybe just if is on floor?
 	if axel.jump_assist.has_buffered_jump() and axel.jump_assist.can_jump_now( axel.is_on_floor() ):
-		axel.start_jump()
 		finished.emit( self, "jump" )
 		return
 

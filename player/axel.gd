@@ -47,10 +47,11 @@ func _process( _delta: float ) -> void:
 
 func _physics_process( _delta: float ) -> void:
 	
-	# Send some physics to the JumperAssister
+	move_and_slide()
+	
+	# Send some delta ticks to the JumperAssister
 	jump_assist.physics_tick( _delta, is_on_floor() )
 	
-	move_and_slide()
 
 # Special jump function to be used just anywhere, even called on by signals
 func start_jump() -> void:
