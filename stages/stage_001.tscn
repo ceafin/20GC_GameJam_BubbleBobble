@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://b07inwsdmj3ar"]
+[gd_scene load_steps=4 format=4 uid="uid://b07inwsdmj3ar"]
 
 [ext_resource type="TileSet" uid="uid://c4xx6o7xxyhre" path="res://resources/all_levels_tileset.tres" id="1_fp1aw"]
 [ext_resource type="PackedScene" uid="uid://dvtqmsbalqa7" path="res://mobs/toaster.tscn" id="2_hf4hi"]
+[ext_resource type="PackedScene" uid="uid://d3dg0342yb1e0" path="res://player/axel.tscn" id="3_nk6fr"]
 
 [node name="Stage_001" type="Node2D"]
 
@@ -23,3 +24,6 @@ position = Vector2(164, 136)
 
 [node name="Toaster3" parent="." instance=ExtResource("2_hf4hi")]
 position = Vector2(224, 177)
+
+[node name="Axel" parent="." instance=ExtResource("3_nk6fr")]
+position = Vector2(54, 68)

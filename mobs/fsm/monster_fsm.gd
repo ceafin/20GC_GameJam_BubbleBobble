@@ -1,10 +1,10 @@
 extends Node
 class_name MonsterFSM
 
-@export var initial_state: MonsterState = null
+@export var initial_state : MonsterState = null
 	
-var current_state: MonsterState
-var states: Dictionary[ String, MonsterState ] = {}
+var current_state : MonsterState
+var states : Dictionary[ String, MonsterState ] = {}
 
 func _ready() -> void:
 	# Check initial state, if not set, grab first child

@@ -1,19 +1,17 @@
 extends Node
-class_name MonsterState
+class_name AxelState
 
-@export var selectable_in_idle : bool = false
-@export var idle_weight : float = 1.0  # Weighted random pick for Idle
 
-var monster : BaseMonster
+var axel : Axel
 
-signal finished( acting_state: MonsterState, new_state_name: String )
+signal finished( acting_state: AxelState, new_state_name: String )
 
 func _ready() -> void:
 	await owner.ready
-	monster = owner as BaseMonster
+	axel = owner as Axel
 	assert(
-		monster != null,
-		"The MonsterState state type must be used only in the Monster scene. It needs the owner to be a BaseMonster node."
+		axel != null,
+		"The AxelState state type must be used only in the Axel scene. It needs the owner to be a Axel node."
 	)
 	
 

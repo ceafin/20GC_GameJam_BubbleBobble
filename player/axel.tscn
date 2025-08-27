@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://d3dg0342yb1e0"]
+
+[ext_resource type="Script" uid="uid://dep517yjwhke7" path="res://player/axel.gd" id="1_lop54"]
+[ext_resource type="Texture2D" uid="uid://dqnqq6jot7rna" path="res://assets/axl_axolotl.png" id="2_1tso6"]
+[ext_resource type="Script" uid="uid://bcthqcf10bdts" path="res://player/fsm/axel_fsm.gd" id="3_tflgl"]
+[ext_resource type="Script" uid="uid://cnwisj8vqokor" path="res://player/fsm/axel_states/axel_idle.gd" id="4_tflgl"]
+[ext_resource type="Script" uid="uid://cmmecqdnblexe" path="res://player/fsm/axel_states/axel_fall.gd" id="5_cgeno"]
+[ext_resource type="Script" uid="uid://mhu00atdykes" path="res://player/jump_assist.gd" id="5_eavdv"]
+[ext_resource type="Script" uid="uid://dmrk42q3px8pv" path="res://player/fsm/axel_states/axel_walk.gd" id="6_5x5rc"]
+[ext_resource type="Script" uid="uid://dx20g5jtwjrra" path="res://player/fsm/axel_states/axel_jump.gd" id="7_ps684"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eavdv"]
+size = Vector2(14, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvmgh"]
+atlas = ExtResource("2_1tso6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trr1l"]
+atlas = ExtResource("2_1tso6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgeno"]
+atlas = ExtResource("2_1tso6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x5rc"]
+atlas = ExtResource("2_1tso6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps684"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvmgh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trr1l")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgeno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x5rc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eavdv"]
+line_spacing = 1.0
+font_size = 12
+
+[node name="Axel" type="CharacterBody2D"]
+script = ExtResource("1_lop54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eavdv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ps684")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.358545
+
+[node name="AxelFSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_tflgl")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bcthqcf10bdts"
+
+[node name="Idle" type="Node" parent="AxelFSM"]
+script = ExtResource("4_tflgl")
+metadata/_custom_type_script = "uid://cnwisj8vqokor"
+
+[node name="Fall" type="Node" parent="AxelFSM"]
+script = ExtResource("5_cgeno")
+metadata/_custom_type_script = "uid://cmmecqdnblexe"
+
+[node name="Walk" type="Node" parent="AxelFSM"]
+script = ExtResource("6_5x5rc")
+metadata/_custom_type_script = "uid://dmrk42q3px8pv"
+
+[node name="Jump" type="Node" parent="AxelFSM"]
+script = ExtResource("7_ps684")
+metadata/_custom_type_script = "uid://dx20g5jtwjrra"
+
+[node name="JumpAssist" type="Node" parent="."]
+script = ExtResource("5_eavdv")
+metadata/_custom_type_script = "uid://mhu00atdykes"
+
+[node name="MyState" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = -5.0
+text = "<>"
+label_settings = SubResource("LabelSettings_eavdv")
+horizontal_alignment = 1
+vertical_alignment = 1

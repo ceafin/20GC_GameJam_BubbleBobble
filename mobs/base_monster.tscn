@@ -17,8 +17,9 @@ script = ExtResource("1_8b100")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8b100")
 
-[node name="MonsterFSM" type="Node" parent="."]
+[node name="MonsterFSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_jkbtp")
+initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dad2ufl1laoi"
 
 [node name="Idle" type="Node" parent="MonsterFSM"]
