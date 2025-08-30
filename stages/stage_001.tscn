@@ -16,14 +16,25 @@ tile_set = ExtResource("1_fp1aw")
 
 [node name="EntryCorner" type="Marker2D" parent="Markers"]
 
-[node name="Toaster" parent="." instance=ExtResource("2_hf4hi")]
+[node name="BubbleMagnet" type="Marker2D" parent="Markers"]
+position = Vector2(128, 56)
+
+[node name="Monsters" type="Node2D" parent="."]
 position = Vector2(177, 98)
 
-[node name="Toaster2" parent="." instance=ExtResource("2_hf4hi")]
-position = Vector2(164, 136)
+[node name="Toaster" parent="Monsters" instance=ExtResource("2_hf4hi")]
 
-[node name="Toaster3" parent="." instance=ExtResource("2_hf4hi")]
-position = Vector2(224, 177)
+[node name="Toaster4" parent="Monsters" instance=ExtResource("2_hf4hi")]
+position = Vector2(-46, 79)
+
+[node name="Toaster5" parent="Monsters" instance=ExtResource("2_hf4hi")]
+position = Vector2(-125, 99)
+
+[node name="Toaster2" parent="Monsters" instance=ExtResource("2_hf4hi")]
+position = Vector2(-13, 38)
+
+[node name="Toaster3" parent="Monsters" instance=ExtResource("2_hf4hi")]
+position = Vector2(47, 79)
 
 [node name="Axel" parent="." instance=ExtResource("3_nk6fr")]
 position = Vector2(54, 68)

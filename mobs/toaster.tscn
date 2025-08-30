@@ -161,3 +161,6 @@ metadata/_custom_type_script = "uid://ch5qbd2evvryp"
 script = ExtResource("5_qx7b8")
 selectable_in_idle = true
 metadata/_custom_type_script = "uid://ceqnq1n766b"
+
+[node name="Captured" parent="MonsterFSM" index="4"]
+separation_strength = 60.0

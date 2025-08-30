@@ -45,6 +45,10 @@ func _physics_process(delta: float) -> void:
 		current_state.physics_update(delta)
 
 
+func change_state( new_state_name: String ) -> void:
+	_transition_to_next_state( current_state, new_state_name )
+
+
 func _transition_to_next_state( acting_state: MonsterState, new_state_name: String ) -> void:
 	# Make sure we aren't transitioning into ourselves
 	if acting_state != current_state:

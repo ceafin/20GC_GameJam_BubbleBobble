@@ -49,15 +49,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcbec"]
 radius = 7.81025
 
-[node name="AxelBubble" type="StaticBody2D"]
+[node name="AxelBubble" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("2_02mk0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fy5ig")
 autoplay = "default"
-frame_progress = 0.338366
+frame_progress = 0.102236
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kcbec")

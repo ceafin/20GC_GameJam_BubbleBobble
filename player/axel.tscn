@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3dg0342yb1e0"]
+[gd_scene load_steps=18 format=3 uid="uid://d3dg0342yb1e0"]
 
 [ext_resource type="Script" uid="uid://dep517yjwhke7" path="res://player/axel.gd" id="1_lop54"]
 [ext_resource type="Texture2D" uid="uid://dqnqq6jot7rna" path="res://assets/axl_axolotl.png" id="2_1tso6"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dx20g5jtwjrra" path="res://player/fsm/axel_states/axel_jump.gd" id="7_ps684"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eavdv"]
-size = Vector2(14, 20)
+size = Vector2(14, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvmgh"]
 atlas = ExtResource("2_1tso6")
@@ -62,12 +62,19 @@ animations = [{
 line_spacing = 1.0
 font_size = 12
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgeno"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x5rc"]
+size = Vector2(20, 3)
+
 [node name="Axel" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 27
+collision_mask = 19
 script = ExtResource("1_lop54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_eavdv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -102,6 +109,7 @@ script = ExtResource("5_eavdv")
 metadata/_custom_type_script = "uid://mhu00atdykes"
 
 [node name="MyState" type="Label" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -28.0
 offset_right = 20.0
@@ -110,3 +118,24 @@ text = "<>"
 label_settings = SubResource("LabelSettings_eavdv")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PopperTop" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopperTop"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_cgeno")
+debug_color = Color(1, 0, 0, 0.25098)
+
+[node name="PopperBottom" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopperBottom"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_5x5rc")
+debug_color = Color(1, 0, 0, 0.25098)
+
+[connection signal="area_entered" from="PopperTop" to="." method="_on_popper_top_area_entered"]
+[connection signal="area_entered" from="PopperBottom" to="." method="_on_popper_bottom_area_entered"]

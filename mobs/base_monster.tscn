@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs1tjs15dm6e6"]
+[gd_scene load_steps=7 format=3 uid="uid://cs1tjs15dm6e6"]
 
 [ext_resource type="Script" uid="uid://cgaf0pfn3wl35" path="res://mobs/base_monster.gd" id="1_8b100"]
 [ext_resource type="Script" uid="uid://dad2ufl1laoi" path="res://mobs/fsm/monster_fsm.gd" id="2_jkbtp"]
 [ext_resource type="Script" uid="uid://b7m2jm7tpycj4" path="res://mobs/fsm/monster_states/monster_idle.gd" id="3_o8hi0"]
+[ext_resource type="Script" uid="uid://bscw8g2gsd7dh" path="res://mobs/fsm/monster_states/monster_captured.gd" id="4_o8hi0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8b100"]
 radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8hi0"]
+radius = 9.0
 
 [node name="BaseMonster" type="CharacterBody2D"]
 collision_layer = 4
@@ -25,3 +29,15 @@ metadata/_custom_type_script = "uid://dad2ufl1laoi"
 [node name="Idle" type="Node" parent="MonsterFSM"]
 script = ExtResource("3_o8hi0")
 metadata/_custom_type_script = "uid://b7m2jm7tpycj4"
+
+[node name="Captured" type="Node" parent="MonsterFSM"]
+script = ExtResource("4_o8hi0")
+metadata/_custom_type_script = "uid://bscw8g2gsd7dh"
+
+[node name="BubbleWrapper" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BubbleWrapper"]
+shape = SubResource("CircleShape2D_o8hi0")
+debug_color = Color(0.741176, 0.811765, 0, 0.203922)
