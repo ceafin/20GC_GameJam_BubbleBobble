@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name BaseMonster
 
+const COLLECTABLE = preload("res://scenes/collectable.tscn")
+
 @export var move_speed : float = 50
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -41,4 +43,15 @@ func get_popped() -> void:
 	if !is_captured:
 		return
 	
+	# Do a small random arch and then fall to the ground with Vector2.ZERO velocity
+	#
+	#
+	#
+	
+	# Spawn a Collectable in the same position
+	var pick_em_up : Collectable = COLLECTABLE.instantiate() as Collectable
+	pick_em_up.global_position = position
+	get_tree().current_scene.add_child( pick_em_up )
+	
+	# Zoink out
 	queue_free()

@@ -13,8 +13,8 @@ config_version=5
 config/name="20GC GameJam Level 6: Platformer - Bubble Bobble"
 config/description="The 20 Games Challenge 2025 Summer GameJam: Bubble Bobble"
 config/version="v0.1"
-run/main_scene="uid://b07inwsdmj3ar"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="uid://byqkm72d40fc5"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]

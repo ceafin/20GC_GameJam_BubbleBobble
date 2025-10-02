@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "aa2873f1225de796",
+    "type": "split",
+    "children": [
+      {
+        "id": "1759a768398210e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "33e7915e8e03e0fb",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a11b7ccf5bfb2ab9",
+    "type": "split",
+    "children": [
+      {
+        "id": "f99770b223a49c35",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d7d98e39bfc904c8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f2c4295686e36105",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "dcd2840b92d64250",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "95cf85907c79a9bf",
+    "type": "split",
+    "children": [
+      {
+        "id": "883eb75bd4155369",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "548d2dec01b77f8b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "b385eb6e9786c1a7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "3012a61d1228cbb9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7f809f0a0614cdf6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Needs Fixing.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Needs Fixing"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "33e7915e8e03e0fb",
+  "lastOpenFiles": [
+    "oop_graph.svg.import",
+    "oop_graph.png.import",
+    "Needs Fixing.md",
+    "oop_graph.svg",
+    "Unconfirmed 752837.crdownload",
+    "oop_graph.png",
+    "oop_catalog.md",
+    "Unconfirmed 577.crdownload",
+    "oop_edges.csv.import",
+    "oop_edges.note.translation",
+    "oop_edges.file.translation",
+    "oop_edges.object.translation",
+    "oop_edges.relation.translation",
+    "oop_edges.relation.translation-uZHtVB",
+    "oop_edges.csv",
+    "godot_audit.md"
+  ]
+}

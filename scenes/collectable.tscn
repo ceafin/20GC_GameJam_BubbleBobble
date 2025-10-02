@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy3vsrej6nx07"]
+
+[ext_resource type="Script" uid="uid://cy3t8duahrjmo" path="res://scripts/collectable.gd" id="1_llfh3"]
+[ext_resource type="Texture2D" uid="uid://datbs10cbl343" path="res://assets/collectables.png" id="1_ti8a4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llfh3"]
+radius = 7.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnya4"]
+size = Vector2(16, 16)
+
+[node name="Collectable" type="StaticBody2D"]
+collision_layer = 16
+script = ExtResource("1_llfh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ti8a4")
+centered = false
+hframes = 6
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_llfh3")
+
+[node name="PickUp" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_dnya4")
